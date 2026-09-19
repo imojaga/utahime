@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>歌姫関連資料</title>
+  <style>
+    :root{--ink:#243238;--muted:#657276;--paper:#fffdf8;--cream:#f3eee3;--clay:#b85c3b;--moss:#526b5a;--line:#d9d2c5}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;line-height:1.9;margin:0;color:var(--ink);background:linear-gradient(135deg,#e8e1d4 0%,#f8f5ee 42%,#e4ece6 100%);}
+    .page{max-width:1120px;margin:0 auto;padding:28px 24px 56px}
+    header{position:relative;overflow:hidden;padding:52px 48px 42px;margin-bottom:22px;border:1px solid rgba(255,255,255,.7);background:var(--ink);color:#fffdf8;box-shadow:0 16px 40px rgba(36,50,56,.16)}
+    header:after{content:"歌　姫";position:absolute;right:30px;bottom:-34px;font-family:serif;font-size:9rem;line-height:1;color:rgba(255,255,255,.08);writing-mode:vertical-rl;letter-spacing:.12em}
+    .eyebrow{position:relative;z-index:1;margin:0 0 12px;color:#d7a17e;font-size:.78rem;font-weight:700;letter-spacing:.18em}
+    h1{position:relative;z-index:1;font-family:Georgia,"Yu Mincho",serif;font-size:clamp(2rem,5vw,4rem);font-weight:500;letter-spacing:.04em;line-height:1.2;margin:0 0 16px}
+    header .note{position:relative;z-index:1;max-width:620px;color:#e0e6e1;font-size:1rem;margin:0}
+    .toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 34px;padding:14px;border:1px solid var(--line);background:rgba(255,253,248,.82);box-shadow:0 8px 22px rgba(36,50,56,.08)}
+    .toc a{color:var(--ink);text-decoration:none;font-size:.88rem;padding:5px 11px;border-bottom:2px solid transparent}
+    .toc a:hover{color:var(--clay);border-color:var(--clay)}
+    main{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+    section{scroll-margin-top:20px;background:var(--paper);border:1px solid var(--line);box-shadow:0 10px 28px rgba(36,50,56,.08)}
+    section.intro{background:transparent;border:0;box-shadow:none;padding:0 4px;margin-bottom:-2px}
+    section.intro h2{border:0;padding:0;margin:0 0 5px;color:var(--moss);font-size:1rem;letter-spacing:.12em}
+    section.intro p{margin:0;color:var(--muted)}
+    .section-head{display:flex;align-items:baseline;gap:14px;padding:24px 28px 15px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--cream),var(--paper))}
+    h2{margin:0;color:var(--ink);font-family:Georgia,"Yu Mincho",serif;font-size:1.55rem;font-weight:500;letter-spacing:.03em}
+    .section-no{color:var(--clay);font-family:Georgia,serif;font-size:.85rem;letter-spacing:.12em}
+    h3{font-size:1.08rem;margin:26px 28px 0;color:var(--moss)}
+    .transcript{padding:22px 30px 26px}
+    .transcript p{margin:0 0 1.1em}
+    .transcript p:last-child{margin-bottom:0}
+    .transcript strong{color:var(--clay);font-weight:700}
+    .label{display:inline-block;margin-bottom:6px;padding:2px 9px;background:var(--moss);color:#fff;font-size:.75rem;letter-spacing:.08em}
+    .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 30px 24px}
+    .fact{padding:13px 14px;border-top:3px solid var(--clay);background:#f5f1e8}
+    .fact strong{display:block;font-family:Georgia,serif;font-size:1.35rem;color:var(--clay);line-height:1.3}
+    .fact span{display:block;color:var(--muted);font-size:.78rem}
+    .poem{white-space:pre-line;padding:14px 20px;margin:16px 0!important;border-left:3px solid var(--clay);background:#f5f1e8;font-family:"Yu Mincho",serif;line-height:2.2}
+    .note{color:var(--muted);font-size:.86rem}
+    .feature-panel{margin:0 0 28px;padding:0;background:transparent;border:0;box-shadow:none}
+    .book-spread{display:grid;grid-template-columns:1fr 1fr;position:relative;background:#e8dfcf;padding:16px;box-shadow:0 16px 34px rgba(36,50,56,.14)}
+    .book-spread:after{content:"";position:absolute;top:10px;bottom:10px;left:50%;width:2px;background:linear-gradient(90deg,rgba(73,52,36,.04),rgba(73,52,36,.3),rgba(255,255,255,.6),rgba(73,52,36,.04));box-shadow:0 0 14px rgba(73,52,36,.15)}
+    .book-page{min-width:0;background:#fffdf7;padding:12px;box-shadow:inset 0 0 20px rgba(76,57,38,.06)}
+    .book-page:first-child{transform:rotate(-.35deg);padding-right:20px}
+    .book-page:last-child{transform:rotate(.35deg);padding-left:20px}
+    .book-page img{display:block;width:100%;height:390px;object-fit:cover;object-position:center;border:1px solid #d3c4a9;filter:sepia(.08) contrast(.98)}
+    .book-caption{padding:12px 8px 4px;color:var(--muted);font-family:"Yu Mincho",serif;font-size:.84rem;line-height:1.65}
+    .feature-copy{padding:20px 22px 18px;background:rgba(255,253,248,.82);border:1px solid var(--line);border-top:0}
+    .feature-copy .label{display:inline-block;margin-bottom:10px;padding:4px 10px;background:var(--clay);color:#fff;border-radius:999px;font-size:.72rem;letter-spacing:.1em}
+    .feature-copy h2{margin:0 0 10px;font-size:clamp(1.4rem,2.1vw,2.2rem)}
+    .feature-copy p{margin:0;color:var(--muted)}
+    .feature-hero{margin:18px 0 26px;padding:18px;background:#f8f3ea;border:1px solid var(--line);box-shadow:0 12px 26px rgba(36,50,56,.08)}
+    .feature-hero img{display:block;width:100%;max-height:780px;object-fit:contain;margin:0 auto;border:1px solid #d9d1c2;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(36,50,56,.08)}
+    footer{margin-top:28px;padding:18px 4px;border-top:1px solid rgba(36,50,56,.25)}
+    @media (max-width:800px){.map-spread{grid-template-columns:1fr}.map-frame{min-height:260px}}
+    @media (max-width:640px){.page{padding:14px 12px 36px}header{padding:34px 24px 30px}header:after{font-size:6rem;right:14px}.section-head{padding:20px 20px 13px}.transcript{padding:18px 20px 22px}h3{margin-left:20px;margin-right:20px}.facts{grid-template-columns:1fr;margin-left:20px;margin-right:20px}.toc{gap:4px}.toc a{font-size:.8rem;padding:4px 7px}.book-spread{padding:9px}.book-page{padding:7px}.book-page:first-child{padding-right:12px}.book-page:last-child{padding-left:12px}.book-page img{height:260px}.book-caption{font-size:.72rem;padding:8px 3px}.map-spread{padding:9px}}
+  </style>
+</head>
+<body>
+  <div class="page">
+  <header>
+    <p class="eyebrow">HISTORY / PLACE / MEMORY</p>
+    <h1>歌姫関連資料</h1>
+    <p class="note">歌姫に関する資料の記載を収録しています。</p>
+  </header>
+
+  <section class="feature-panel">
+    <div class="book-spread" aria-label="歌姫資料の本の見開き">
+      <div class="book-page">
+        <img src="スクリーンショット 2026-09-15 000237_拡大2.png" alt="歌姫の地名と歌姫瓦窯跡が載った資料ページ">
+        <div class="book-caption">左ページ：歌姫の地名と、平城宮の瓦を焼いた歌姫瓦窯跡。</div>
+      </div>
+      <div class="book-page">
+        <img src="スクリーンショット 2026-09-15 000449_拡大3.png" alt="歌姫越の道筋と歴史が載った資料ページ">
+        <div class="book-caption">右ページ：歌姫越の地形、古代の道、周辺の生産遺跡。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-hero" aria-label="歌姫関連の大きな画像">
+    <img src="u4.png" alt="歌姫の位置関係と地形を示す大きな画像">
+    <img src="u2.png" alt="歌姫越の位置と周辺を示す画像" style="margin-top:18px;display:block;width:100%;max-height:780px;object-fit:contain;border:1px solid #d9d1c2;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(36,50,56,.08);">
+  </section>
+
+  <nav class="toc" aria-label="章一覧">
+    <a href="#utahime">歌姫</a>
+    <a href="#village">歌姫村</a>
+    <a href="#pass">歌姫越</a>
+    <a href="#kiln-west">歌姫西瓦窯跡</a>
+    <a href="#kiln">歌姫瓦窯跡</a>
+    <a href="#shrine">添御縣坐神社</a>
+  </nav>
+
+  <main>
+  <section class="intro">
+    <h2>この資料について</h2>
+    <p>地名、村の暮らし、古代の道、瓦を焼いた窯跡。歌姫をめぐる記載を、項目ごとにたどれます。</p>
+  </section>
+
+  <section id="utahime">
+    <div class="section-head"><span class="section-no">01</span><h2>歌姫（うたひめ）</h2></div>
+    <div class="transcript">
+      <p><strong>【近代】歌姫</strong><br>明治22年〜昭和26年の平城村の大字名。大正末期から昭和期にかけて、生大根・沢庵漬の販売が盛んになる。昭和26年奈良市歌姫町となる。</p>
+      <p><strong>【近代】歌姫町</strong><br>昭和26年〜現在の奈良市の町名。昭和29年、赤井谷横穴古墳から陶棺2基が検出された。同54年、聖武天皇の松林宮跡が、佐紀町と歌姫町にかけて築地の一部が現存していることが確認された。同62年、一部が右京1〜5丁目・朱雀1〜6丁目・左京1〜6丁目となる。</p>
+      <p><strong>【歌姫】</strong><br>奈良市歌姫町にある。佐保川支流秋篠川上流左岸に位置する。地名の由来は、平城京には雅楽の姫の住んでいたところとも、また刑部の住んでいたところからつけられたともいうが、詳らかではない。</p>
+    </div>
+    <div class="feature-hero" style="margin-top:0;">
+      <img src="u10.png" alt="歌姫の画像" style="display:block;width:100%;max-height:780px;object-fit:contain;border:1px solid #d9d1c2;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(36,50,56,.08);">
+    </div>
+  </section>
+
+  <section id="village">
+    <div class="section-head"><span class="section-no">02</span><h2>歌姫村</h2></div>
+    <div class="facts">
+      <div class="fact"><strong>56</strong><span>享保9年の家数</span></div>
+      <div class="fact"><strong>282</strong><span>享保9年の人数</span></div>
+      <div class="fact"><strong>424</strong><span>明治15年頃の人口</span></div>
+    </div>
+    <div class="transcript">
+      <p><strong>【近世】歌姫村</strong><br>江戸期〜明治22年の村名。添下郡のうち。雅楽姫村とも書いた（文禄検地帳・大和志）。元禄郷帳・天保郷帳に超昇寺村枝郷とあり、寛文4年〜貞享3年の間に同村から分村して成立したと思われる。郡山藩領。</p>
+      <p>村高は「元禄郷帳」「天保郷帳」ともに373石余。享保9年の諸色明細帳によれば、家数56（うち本百姓55・水呑百姓1）、人数282、牛25、布商売をする者1人。田畑では稲・木綿・大豆・小豆・そば・大根が作物として栽培され、耕作のほか男は街道筋で駄賃稼ぎ、女は布を織って働いた。</p>
+      <p>神社には添御縣坐神社、寺院には浄土真宗本願寺派西光寺があり、ほかに平安寺があった。</p>
+      <p>明治15年頃の戸数80・人口424、牛15、人力車2。税地は田40町1反余、畑18町8反余、宅地3町余、山地35町6反余、蚕地7反余の総計98町3反余。物産は米425石、糯米36石、麦14石、蚕豆5石、大豆5石、小豆2石、菜種31石、大根150駄、薩摩芋180駄、蕎麦4石余、実綿1,300斤。職業は農業60、商業5、農商工兼業25（町村誌集）。</p>
+      <p>歌姫街道沿いに茶屋があり、人力車2両を有する茶屋集落として、「茶ヤ来」の小字が残っている。大根は「歌姫大根」と称され、粘土質の土壌に適応してよく育ち有名であった。また筍も、京都府下の「山城たけ」、特に市坂（木津町）・棚倉（山城町）の筍にひけをとらないものとして、よく栽培されていた。その他、生姜も栽培されていた。</p>
+    </div>
+  </section>
+
+  <section id="pass">
+    <div class="section-head"><span class="section-no">03</span><h2>歌姫越</h2></div>
+    <div class="transcript">
+      <p><strong>【歌姫越　奈良市】</strong></p>
+      <p>奈良市歌姫町にある奈良山丘陵の小さな分水界。標高87m。地質は第四紀の洪積佐保累層からなる。</p>
+      <p>平城京の内裏中央から朱雀大路・下ツ道へ連なる奈良盆地の古代の計画古道の北への延長上に位置し、山城国相楽郡木津を経て京都へ向かう古代の主要道である。</p>
+      <p>文禄4年検地帳や『大和志』では「雅楽姫」の佳名をあて、雅楽寮に従事した部の地名と推定されるが、刑部の可能性もある（日本地名伝承論）。</p>
+      <p>古代に奈良坂（平城坂）と呼ばれたものは、この歌姫越をさしたものと考えられるが、南都の発達とともに、中世以降は般若坂越のルートが奈良坂と呼ばれるようになった。</p>
+      <p>平城宮内のこの道筋から、近江国蒲生郡の人が藤原京へ向かう際に用いた通所符が発見されたことから、歌姫越利用が推定される。ただし、昭和54年にこの歌姫越をまたいで確認された土塁が、『続紀』天平年間にあらわれる宮儀・祭宴が行われた松林宮の遺構と考えられるようになったため、この時期には、離宮内を避けて、瓢箪山古墳と塩塚古墳の間の松林宮の推定西壁に沿って小谷を近鉄京都線へ向かうルートに変更されたとも考えられる。</p>
+      <p>都が京都に移ってからは、官道としての機能は失われたが、永祚元年の一条天皇春日行幸、寛弘4年の藤原道長の春日詣はこの道筋を通ったと推定される。</p>
+      <p>歌姫の集落内には、式内社の添御縣坐神社が鎮座し、洪積丘陵の北斜面には平城京で用いた瓦を焼いた歌姫瓦窯跡（国史跡）、歌姫西瓦窯跡、音如ヶ谷窯跡、山陵窯跡などの生産遺跡が京阪奈丘陵からの連続として分布する。</p>
+      <p>この地域は、中世には超昇寺郷の7か村入会地として利用されてきた。また歌姫越は、近世には郡山藩によって郡山街道として整備され、押熊・中山・山陵・常福寺とともに街道の助郷に歌姫が指定され、茶屋もできた。</p>
+      <p>現在、県道木津平城線として、近鉄大寺駅からバスが歌姫の集落まで来ているが、集落付近の道幅は狭く、大型車両の通行は不可能である。分水界の北は、平城ニュータウンの建設が進み、外環状道路（市道北部1244号線）が完成して大きく変貌しようとしている。</p>
+    </div>
+  </section>
+
+  <section id="kiln-west">
+    <div class="section-head"><span class="section-no">04</span><h2>歌姫西瓦窯跡</h2></div>
+    <div class="transcript">
+      <p><strong>【歌姫西瓦窯跡　奈良市】</strong></p>
+      <p>奈良市歌姫町に所在する瓦窯跡。平城宮の北方約5km以内の丘陵地帯に点在する奈良山瓦窯群の一つで、平城宮所用瓦を焼いた窯である。</p>
+      <p>窯は奈良山丘陵の東端に位置し、北東へ延びる低い尾根の南東斜面に立地しており、標高は55〜60mの範囲。昭和47年の発掘調査では、延長30mの間に5基の瓦窯が並列していた。</p>
+      <p>窯はいずれも平瓦と粘土を交互に積み上げた壁をもつ平窯であるが、窯幅に比して狭長な筒窯風のものと、焼成室の奥行が浅くて間口とほぼ等しい平面形をもつものとがある。</p>
+      <p>ここで焼かれた瓦は8世紀中頃のもので、同苑の瓦が平城宮跡から出土している。付近には8世紀の須恵器窯4基が点在していることも調査でわかった。</p>
+      <p>奈良山瓦窯群のなかで、当瓦窯とほぼ同時期に操業していた窯としては、約1km南西方にある山陵瓦窯（奈良市山陵町）が知られている。同瓦窯では窯室2基と平窯1基が発掘され、窯窯から平窯へ変化する様子がうかがえた。</p>
+      <p>この地はすでに宅地化されてしまい、遺存しない。歌姫西瓦窯の北方150mには音如ヶ谷瓦窯（京都府相楽郡木津町）があり、4基の平窯と、その前面の平坦地に掘立柱建物を備えた瓦製作のための工房跡もみつかっている。</p>
+      <p>奈良山瓦窯群に属する瓦窯は、標高55〜100mの範囲内に位置しており、地質的に第三紀鮮新世の大阪層群に相当する佐保累層に設けられている。</p>
+      <p>したがって、これらの瓦窯群は良質の粘土が得やすいことと、丘陵の樹林が燃料として活用できるという利点、そして何よりも瓦の消費地に近いという地の利を生かした一大生産地であった。</p>
+      <p>参考文献に、『奈良山―平城ニュータウン予定地内遺跡調査概報』がある。</p>
+    </div>
+    <div class="feature-hero" style="margin-top:0;">
+      <img src="u6.png" alt="歌姫西瓦窯跡の位置と周辺の画像" style="display:block;width:100%;max-height:780px;object-fit:contain;border:1px solid #d9d1c2;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(36,50,56,.08);">
+    </div>
+  </section>
+
+  <section id="kiln">
+    <div class="section-head"><span class="section-no">05</span><h2>歌姫瓦窯跡</h2></div>
+    <div class="transcript">
+      <p><strong>【歌姫瓦窯跡　奈良市】</strong></p>
+      <p>奈良市歌姫町に所在する瓦窯跡。国史跡。奈良山丘陵の東部東斜面に設けられた奈良期末の瓦生産の窯跡。</p>
+      <p>押熊瓦窯・山陵瓦窯・歌姫西瓦窯などとともに、奈良山瓦窯群を構成する。昭和28年の発掘調査によって、平瓦を積み重ねて側壁を作り、床には8本の火道を作りつけた、いわゆる有牀一口ストル式の構造をした平窯であることが判明。</p>
+      <p>この窯で焼いた製品は今のところはっきりしないが、平城宮所用瓦を焼いたことは間違いないであろう。また、付近一帯の調査が進んでいるわけではないので窯の数も不明だが、少なくとも2基以上はあったと思われる。</p>
+      <p>現在、国道24号バイパス沿いの部分が保存され、奈良市教育委員会が管理している。参考文献に、『屋瓦の変遷』（世界考古学大系日本4）がある。</p>
+    </div>
+    <div class="feature-hero" style="margin-top:0;">
+      <img src="u7.jpg" alt="歌姫瓦窯跡の画像" style="display:block;width:100%;max-height:780px;object-fit:contain;border:1px solid #d9d1c2;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(36,50,56,.08);">
+    </div>
+  </section>
+
+  <section id="shrine">
+    <div class="section-head"><span class="section-no">06</span><h2>添御縣坐神社（そうのみあがたにますじんじゃ）</h2></div>
+    <div class="transcript">
+      <p><strong>式内　添御縣坐神社</strong></p>
+      <p><strong>祭神</strong><br>速須佐之男命（はやすさのおのみこと）<br>櫛稲田姫命（くしなだひめのみこと）<br>武乳速命（たけちはやのみこと）</p>
+      <p>祭神・速須佐之男命は皇祖・天照大神の弟神、櫛稲田姫命は、須佐之男命によって八岐大蛇の難をのがれ、命の妃となった姫神。武乳速命は添御縣の地の祖神です。</p>
+      <p><strong>祭礼</strong><br>一月一日　元旦祭<br>二月十一日　春の大祭<br>八月二十三日　雨喜祭<br>十月十八日　秋祭<br>十一月二十八日　秋の大祭<br>各月一日　月次祭</p>
+      <p>延喜式の祈年祭制によると、御縣の神は代々天皇の御膳に野菜を献上したと記されています。また祭神・櫛稲田姫命の神名は、「奇（く）し稲田」が原義でその神格は農の神であります。</p>
+      <p>当神社は大和平野中央を貫く古代の下ツ道の北端に位置します。そして、大和から歌姫越えで諸国へ旅をする際に、国境に鎮座する手向けの神として尊崇されていました。</p>
+      <p>万葉集に左大臣・長屋王の詠んだつぎの歌があります。</p>
+      <p class="poem">佐保すぎて
+寧楽の手向けに置く幣は
+妹を目離れず
+相見しめとそ</p>
+      <p>この歌は、大和と山城の国境いの神、添御縣坐神社を拝し、旅の安全を祈念したものと考えられます。</p>
+      <p>当神社は、格のある式内社・六縣社の一つとしてだけでなく、農の神、旅の神として崇敬されてきました。</p>
+      <p>江戸時代には、「牛頭天王社」「八王子社」として崇敬されてきました。</p>
+    </div>
+    <div class="feature-hero" style="margin-top:0;">
+      <img src="u9.jpg" alt="添御縣坐神社の画像1" style="display:block;width:100%;max-height:780px;object-fit:contain;border:1px solid #d9d1c2;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(36,50,56,.08);">
+      <img src="u8.jpg" alt="添御縣坐神社の画像2" style="display:block;width:100%;max-height:780px;object-fit:contain;margin-top:18px;border:1px solid #d9d1c2;border-radius:12px;background:#fff;box-shadow:0 10px 24px rgba(36,50,56,.08);">
+    </div>
+  </section>
+
+  <footer>
+  </footer>
+  </main>
+  </div>
+</body>
+</html>
